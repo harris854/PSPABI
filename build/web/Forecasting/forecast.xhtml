@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich" >
+
+    <h:head>
+        <title>Forecast</title>
+        <h:outputStylesheet library="css" name="Other.css" /> 
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="../js/highcharts.js"></script>
+        <script src="../js/modules/exporting.js"></script>
+        <script src= "../js/forcast_model_train.js"></script>
+
+    </h:head>
+    <body id="te">
+        <ui:include src="../header.xhtml" />
+        <f:view >
+            <h:form>
+                <div id="asd">
+                    <div id="container" style="width:355px; left:500px" >
+                        <a4j:outputPanel id="out">
+                            <rich:extendedDataTable value="#{pre.preData}" 
+                                                    id="table1"  var="itr" styleClass="amba" rendered="#{not empty pre.preData}"
+                                                    selectionMode="none" style="max-height:550px;">
+
+                                <rich:column width="350px">
+                                    <f:facet name="header" >
+                                        <h:outputText value="Resuts" />
+                                    </f:facet>
+                                    <h:outputText  value="#{itr}" />
+                                </rich:column>
+                            </rich:extendedDataTable>
+                        </a4j:outputPanel>
+                    </div>
+                    <div id="forecasting">
+                        <rich:panel style="background:transparent;overflow:visible;">
+                            <f:facet name="header"><h:outputText value="Set Parameter"/></f:facet>
+                            <h:panelGrid columns="2" border="0">
+                                Learn rate:
+                                <h:inputText id="learn" 
+                                             value="#{pre.learnRate}"/>   
+
+                                Momentum:<h:inputText id="moment" 
+                                                      value="#{pre.momentum}"/> 
+
+                                Select category:
+                                <rich:select id="classkey" enableManualInput="true" defaultLabel="Select Catagory" value="#{pre.classKey}" required="true">
+
+                                    <f:selectItems value="#{categories.cat}"  />
+
+                                </rich:select>
+
+
+                            </h:panelGrid>
+
+
+                            <a4j:commandButton id="submit1" 
+                                               render="out viz"
+                                               value="Train"
+                                               action="#{pre.operate()}"
+                                               execute="@form"/>
+                            <a4j:commandButton id="submit2" 
+                                               render="out viz"
+                                               value="Predict"
+                                               action="#{pre.operate2()}"
+                                               execute="@form"/>
+                            <h:commandButton id="Visualization8" 
+                                             type="submit"
+                                             value="Visualize"
+                                             action="vizu.xhtml"/>
+                            <!--<a4j:commandButton value="Visualize" render="viz" execute="@form" />-->
+
+                        </rich:panel>
+                    </div></div>
+
+
+            </h:form>
+            <!--            <h:form>
+                            <a4j:outputPanel id="viz">
+                            <div id="json" style="display:none">
+                                <h:outputText value="#{pre.getJson()}" rendered="#{not empty pre.getJson()}"/> </div>
+                            <div id="container" style="widht:available;"></div>
+                       </a4j:outputPanel>
+                      </h:form>-->
+            <h:form  id="strip" style="right:0; top:99px;"> 
+                <h:commandLink value="Home" action="../welcome.xhtml" />
+                <!--<h:commandLink value="Visualize" action="vizu.xhtml" id="vizu"/>-->
+                <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
+
+            </h:form> 
+            <div id="strip" style="left:10px;top:99px;">
+                <a4j:status>
+
+                    <f:facet name="start">
+                        <h:graphicImage value="/images/ai.gif" alt="ai" />
+                    </f:facet>
+                </a4j:status></div>
+
+        </f:view>
+
+        <div id="foot">  <ui:include src="../footer.xhtml"/> </div>
+    </body>
+</html>

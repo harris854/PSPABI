@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich" >
+    <h:head>
+        <title>Manage User</title>
+        <h:outputStylesheet library="css" name="Other.css" />
+    </h:head>
+    <body id="te">
+        <ui:include src="header.xhtml" />
+        <div id="rules-container">
+
+            <rich:dataTable value="#{user.cList}" 
+                            id="table"  var="usr" styleClass="amba" 
+                            selectionMode="none" style="max-height:600px;width:500px;">
+
+
+                <f:facet name="header">
+                    <h:outputText value="User details" />
+                </f:facet> <rich:column width="350px">
+                    <f:facet name="header" >
+                        <h:outputText value="Username" />
+                    </f:facet>
+                    <h:outputText  value="#{usr.uname}" />
+                </rich:column>
+                <rich:column width="150px"> 
+                    <f:facet name="header">
+                        <h:outputText value="Type" />
+                    </f:facet>
+                    <h:outputText value="#{usr.utype}" />
+                </rich:column>
+
+            </rich:dataTable>
+
+
+        </div>
+        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+    </body>
+</html>

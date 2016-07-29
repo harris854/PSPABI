@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML >
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich" 
+      >
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Create user</title>
+
+        <h:outputStylesheet library="css" name="Other.css" />
+    </h:head>
+    <body id="te">
+        <ui:include src="header.xhtml" />
+        <div id="center-container1">
+            Create a New Account
+
+            <f:view>
+                <h:form id="create">            
+                    <h:panelGrid columns="3" border="0" style="color:black;">
+                        First Name: <h:inputText id="fname"       
+                                                 requiredMessage="*"
+                                                 value="#{usermanager.fname}"
+                                                 required="true"/>  
+                        <h:message for="create:fname" style="color: red"/>
+                        Last Name: <h:inputText id="lname"  
+                                                requiredMessage="*"
+                                                value="#{usermanager.lname}"
+                                                required="true"/>
+                        <h:message for="create:lname" style="color: red"/>
+                        Type :<h:selectOneMenu id="type"       
+                                               value="#{usermanager.type}"
+                                               required="true" >  
+                            <f:selectItem itemValue="admin" itemLabel="Admin" />
+                            <f:selectItem itemValue="dataanalyst" itemLabel="Dataanalyst" />
+
+                        </h:selectOneMenu>
+
+                        <h:message for="create:type" style="color: red"/>
+
+                        Username: <h:inputText id="username" 
+                                               requiredMessage="*"
+                                               value="#{usermanager.username}"
+                                               required="true"/>
+                        <h:message for="create:username" style="color: red"/>
+                        Password: <h:inputSecret id="password"    
+                                                 requiredMessage="*"
+                                                 value="#{usermanager.password}"
+                                                 required="true"/>
+                        <h:message for="create:password" style="color: red"/>
+                        Password (verify): <h:inputSecret id="passwordv"   
+                                                          requiredMessage="*"
+                                                          value="#{usermanager.passwordv}"
+                                                          required="true"/>
+                        <h:message for="create:passwordv" style="color: red"/>
+                    </h:panelGrid>
+                    <h:commandButton id="submit" 
+                                     value="Create"
+                                     action="#{usermanager.createUser}"/>
+                    <h:commandButton id="cancel" 
+                                     value="Cancel"
+                                     action="adm_welcome"/>
+
+                    <h:messages style="color: red" globalOnly="true"/>
+                </h:form>
+
+            </f:view>
+
+        </div>
+
+        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+    </body>
+</html>

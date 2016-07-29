@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.1"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+  
+    <lifecycle>
+        <phase-listener>
+            UserLogin.AuthenticationPhaseListener
+        </phase-listener>
+    </lifecycle>
+    
+    <managed-bean>
+        <managed-bean-name>usermanager</managed-bean-name>
+        <managed-bean-class>UserLogin.UserManager</managed-bean-class>      
+        <managed-bean-scope>request</managed-bean-scope>     
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>jsoncreator</managed-bean-name>
+        <managed-bean-class>JsonCreator.jsoncreator</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>      
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>categories</managed-bean-name>
+        <managed-bean-class>JsonCreator.category</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>      
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>analysis</managed-bean-name>
+        <managed-bean-class>Analysis.MbAnalysis</managed-bean-class>         
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+     <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>UserLogin.Users</managed-bean-class>         
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pre</managed-bean-name>
+        <managed-bean-class>Forecasting.PredictData</managed-bean-class>      
+        <managed-bean-scope>request</managed-bean-scope>     
+    </managed-bean>
+      <managed-bean>
+        <managed-bean-name>clusterc</managed-bean-name>
+        <managed-bean-class>Clustering.Cluster_Clope</managed-bean-class>      
+        <managed-bean-scope>request</managed-bean-scope>     
+    </managed-bean>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>create</from-outcome>
+            <to-view-id>/create.xhtml</to-view-id>            
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>welcome</from-outcome>
+            <to-view-id>/welcome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adm_welcome</from-outcome>
+            <to-view-id>/adm_welcome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>barchart</from-outcome>
+            <to-view-id>/Visualization/barchart.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>areachart</from-outcome>
+            <to-view-id>/Visualization/areachart.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>piechart</from-outcome>
+            <to-view-id>/Visualization/piechart.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sanlysis</from-outcome>
+            <to-view-id>/sanalysis.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>forecast</from-outcome>
+            <to-view-id>/Forecasting/forecast.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

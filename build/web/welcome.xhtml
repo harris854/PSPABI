@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich" 
+      >
+
+    <h:head>
+        <title>Welcome page</title>
+        <h:outputStylesheet library="css" name="Other.css" />
+    </h:head>
+    <body id="te">
+        <ui:include src="header.xhtml" />
+        <f:view>
+
+            <div id="strip" style="top:99px;right:0;">
+                <h:commandButton id="ld" value="Logout" action="#{usermanager.logout}"/>
+            </div>
+            <div id="welcome-container">
+                <div id="center-container1">
+                    <h:form>      
+                        <h:commandLink>
+                            <div id="Sag">
+                                <h:graphicImage  value="/images/viz1.jpg" width="100" height="100" alt="Viz1"/>  
+                            </div>      
+                            <rich:componentControl target="popup1" operation="show" />
+                        </h:commandLink>
+                    </h:form>
+
+                    <rich:popupPanel id="popup1" modal="false" autosized="true" resizeable="false">
+                        <f:facet name="header"><h:outputText value="Selection query" /></f:facet>
+                        <f:facet name="controls"><h:outputLink value="#" onclick="#{rich:component('popup1')}.hide(); return false;">
+                                X
+                            </h:outputLink>
+                        </f:facet>
+
+                        <h:form id="setsql" >            
+                            <h:panelGrid  styleClass="pan" width="400px"  columns="2" border="0" cellspacing="10px">
+                                <h:column>  <h:outputText value="Select category:"  /></h:column>
+                                <h:column> <rich:select id="classkey" enableManualInput="true" defaultLabel="start typing for select" value="#{jsoncreator.category}" required="true">
+                                    
+                                        <f:selectItems value="#{categories.cat}"  />
+                                    
+                                    </rich:select>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="From date :"/>
+                                </h:column>
+                                <h:column>
+                                    <rich:calendar value="#{jsoncreator.fdate}" id="fdate"
+                                                   locale="en/US" popup="true"
+                                                   datePattern="yyyy-MM-dd"
+                                                   style="width:200px">
+                                    </rich:calendar>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="To date:"/>
+                                </h:column>
+                                <h:column>
+                                    <rich:calendar value="#{jsoncreator.tdate}" id="tdate"
+                                                   locale="en/US" popup="true"
+                                                   datePattern="yyyy-MM-dd"
+                                                   style="width:200px"
+                                                   >
+                                    </rich:calendar>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="View type:"/>
+                                </h:column>
+                                <h:column>
+                                    <h:selectOneRadio id="way" value="#{jsoncreator.type}">
+                                        <f:selectItem id="item1" itemLabel="Day" itemValue="day" />
+                                        <f:selectItem id="item2" itemLabel="Date" itemValue="date" />
+                                    </h:selectOneRadio>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="Select Model:"  />
+                                </h:column>
+                                <h:column>
+                                    <h:selectOneMenu id="viz"       
+                                                     value="#{jsoncreator.viz}"
+                                                     required="true" >  
+                                        <f:selectItem itemValue="barchart" itemLabel="Barchart" />
+                                        <f:selectItem itemValue="piechart" itemLabel="Piechart" />
+                                        <f:selectItem itemValue="areachart" itemLabel="Areachart" />
+                                    </h:selectOneMenu>
+                                </h:column>
+                            </h:panelGrid>
+                            <h:commandButton id="submit" value="Visualize" action="#{jsoncreator.result}"/>
+                        </h:form>
+                    </rich:popupPanel>
+                    <br></br><h:outputText value="Visualization detail" style="color:black;" />  
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <h:form>
+                    <div id="Sag">
+                        <h:commandLink action="sanalysis.xhtml">
+                            
+                            <h:graphicImage value="/images/analy.jpg" width="100" height="100" alt="analysis"/>
+                        </h:commandLink>
+                    </div></h:form>
+                    <br></br>
+                    <h:outputText value="Market Basket Analysis" style="color: black;" />   
+                </div>      
+
+                <div id="center-container2">
+                    <h:form>
+                    <div id="Sag">
+                        <h:commandLink action="visualization_home.jsp">
+                        
+                            <h:graphicImage value="/images/viz2.jpg" width="100" height="100" alt="Viz2"/>
+                        </h:commandLink>  
+                    </div></h:form>
+                    <br></br> <h:outputText value="Visualization" style="color: black;" />   
+                    <br></br>
+
+                    <br></br>
+                    <br></br> 
+                    <h:form>
+                    <div id="Sag">
+                        
+                        <h:commandLink action="clusterviz.jsp">
+                            
+                        <h:graphicImage value="/images/clust1.jpg" width="100" height="100" alt="Cluster"/>
+                     
+                         </h:commandLink>
+                    </div></h:form>
+                    <br></br>
+                    
+                    <h:outputText value="Cluster Visualization" style="color:black;" />   
+
+                </div>
+                <div id="center-container3">
+                    <h:form>
+                        <div id="Sag">
+                            <h:commandLink action="Forecasting/forecast.xhtml">
+                                <h:graphicImage value="/images/forecast.png" width="100" height="100" alt="forecast"/>  
+                            </h:commandLink>
+                        </div>     </h:form> 
+
+
+                    <br></br>
+
+                    <h:outputText value="Forecasting" style="color:black;" /> 
+                </div>
+            </div>
+            <div id="strip" style="left:10px;top:99px;"><a4j:status>
+
+                    <f:facet name="start">
+                        <h:graphicImage value="/images/ai.gif" alt="ai" />
+                    </f:facet>
+                </a4j:status></div>
+
+        </f:view>
+
+        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+    </body>
+</html>
