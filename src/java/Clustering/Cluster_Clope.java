@@ -98,7 +98,7 @@ public class Cluster_Clope {
             Connection con = (Connection) DriverManager.getConnection(dbUrl, "root", "");
             Statement stmt = (Statement) con.createStatement();
    //  rs = stmt.executeQuery("SELECT classkey, vchrno FROM `cluster` order by vchrno asc");
-           ResultSet rs = stmt.executeQuery("SELECT classkey, vchrno FROM `sales` where floor=1 and date between '2011-9-11' and '2011-10-11' order by vchrno asc");
+           ResultSet rs = stmt.executeQuery("SELECT classkey, vchrno FROM `sales` where floor=1 and date between '2016-7-17' and '2016-12-16' order by vchrno asc");
 
 
             rs.next();
@@ -135,6 +135,7 @@ public class Cluster_Clope {
 
             allocation();
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             //  Logger.getLogger(Clustering.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

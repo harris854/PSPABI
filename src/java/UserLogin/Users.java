@@ -38,18 +38,14 @@ public class Users {
 
             String query = "select username, type from  users;";
             ResultSet rs1 = s.executeQuery(query);
-rs1.beforeFirst();
+            rs1.beforeFirst();
             while (rs1.next()) {
 
                 cList.add(new pack(rs1.getString("username"), rs1.getString("type")));
             }
 
+        } catch (Exception e) {
         }
-        catch (Exception e) {
-        }
-
-
-
 
     }
 }

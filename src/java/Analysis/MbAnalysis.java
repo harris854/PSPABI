@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public class MbAnalysis {
 
-    private static double minSupport = .5;
-    private static double minConfidence = .5;
+    private static double minSupport = .004;
+    private static double minConfidence = .4;
     static int noOftransaction;
     private static ArrayList<Object> allFreqItemList = new ArrayList<Object>();
     private static ArrayList<String> cList = new ArrayList<String>();
@@ -21,8 +21,8 @@ public class MbAnalysis {
     private static Date fdate = new Date();
     private static Date tdate = new Date();
     private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    private static String fd = "2009-07-17";
-    private static String td = "2015-08-17";
+    private static String fd = "2016-08-17";
+    private static String td = "2016-09-17";
 
     public Date getFdate() {
         return fdate;
@@ -71,7 +71,7 @@ public class MbAnalysis {
     }
 
     public static void main(String[] args) {
-        System.out.println(args[0]);
+        //System.out.println(args[0]);
         getDatabaseInput();
     }
 

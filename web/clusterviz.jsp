@@ -59,6 +59,8 @@
         
         
         
-        <div id="foot">    <%@include file="footer.xhtml" %></div>
+        <div  class="footer">
+            <%@include file="footer.xhtml" %> 
+        </div>
     </body>
 </html>

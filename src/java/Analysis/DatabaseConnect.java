@@ -11,7 +11,7 @@ import java.sql.*;
  * @author Hari
  */
 public class DatabaseConnect {
-    String dbName="armdb";
+    String dbName="bhatbhateni";
     String dbUrl = "jdbc:mysql://localhost:3306/"+dbName;
     Connection con;
     public Statement stmt;

@@ -12,6 +12,12 @@
     <body id="te">
         <ui:include src="../header.xhtml" />
         <f:view >
+             <h:form   class="row logout">
+                  <h:commandLink value="Back" action="forecast.xhtml" />
+                <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
+            </h:form >
+            
+            
             <h:form>
                 <div id="forecasting" style="display:none;">
                     <a4j:outputPanel id="out">
@@ -37,22 +43,18 @@
 
                 <div id="json" style="display:none">
                     <h:outputText value="#{pre.getJson()}"/> </div>
-                <div id="container" style="widht:available;"></div>
+                <div id="container" style="width:available;"></div>
             </h:form>
-            <h:form  id="strip" style="right:0; top:99px;"> 
-                <h:commandLink value="Back" action="forecast.xhtml" />
-                <!--<h:commandLink value="Visualize" action="vizu.xhtml" id="vizu"/>-->
-                <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
-
-            </h:form> 
+            
+           
 
             <div id="strip" style="left:10px;top:99px;">
                 <a4j:status> 
-
                     <f:facet name="start">
                         <h:graphicImage value="/images/ai.gif" alt="ai" />
                     </f:facet>
-                </a4j:status></div>
+                </a4j:status>
+            </div>
 
         </f:view>
 

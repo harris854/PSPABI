@@ -85,8 +85,8 @@ public class UserManager {
            
             if (fUser(username)) {
                 String query = "select password, type from  users where username='" + username + "';";
-                ResultSet rs1 = s.executeQuery(query);
-               
+                
+                 ResultSet rs1 = s.executeQuery(query);
                 rs1.next();
                 
                 if (!rs1.getString(1).equals(password)) {

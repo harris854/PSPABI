@@ -15,16 +15,16 @@
         <h:outputStylesheet library="css" name="Other.css" /> 
     </h:head>
     <body id="te" >
-
         <ui:include src="header.xhtml" />
-        <div id="login">
+        <div class="row">
+              <div class="login">
             <f:view >
                 <h:messages style="color: red"
                             showDetail="true"/>
-                <h:form id="login1" >
-                    <rich:panel style="width:330px;">
-                        <f:facet name="header">
-                            <h:outputText value="LOGIN" style="font-size: 24px;"/>
+                <h:form  class="login-box" >
+                    <rich:panel>
+                        <f:facet name="header" class="header">
+                            <h:outputText value="LOGIN" />
                         </f:facet>
                         <h:panelGrid columns="2" border="0">
                             Username: <h:inputText id="username" 
@@ -37,11 +37,15 @@
                                          value="Login"
                                          action="#{usermanager.validateUser}"/>
                         <br/>
-
                     </rich:panel>
                 </h:form>
-            </f:view> </div>
+            </f:view>
+        </div>
+        </div>
+      
 
-        <div id="foot">  <ui:include src="footer.xhtml" /> </div>
+        <div id="foot"> 
+            <ui:include src="footer.xhtml" /> 
+        </div>
     </body>
 </html>

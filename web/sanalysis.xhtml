@@ -10,16 +10,28 @@
     <h:head>
         <title>Selection Window</title>
         <h:outputStylesheet library="css" name="Other.css" /> 
-
-
     </h:head>
-    <body id="te">
+    <body >
         <ui:include src="header.xhtml" />
-        <center> <f:view >
-
+        <div class="row">
+        <div class="loader">
+                    <a4j:status>
+                        <f:facet name="start">
+                            <h:graphicImage value="/images/ai.gif" alt="ai" />
+                        </f:facet>
+                    </a4j:status>
+                </div>
+         <h:form  class="logout">
+            <a id="home" href="../faces/welcome.xhtml" class="button home">Home</a>
+            <h:commandButton id="logout" class="button" value="Logout" action="#{usermanager.logout}"/>
+            </h:form>
+        </div>
+        
+        <div class="row">
+              <center>
+            <f:view >
                 <h:form  >
                     <div id="rules-container" >
-
                         <a4j:outputPanel id="out">
                             <rich:extendedDataTable value="#{analysis.associationRules}" 
                                                     id="table"  var="rule" styleClass="amba" 
@@ -42,11 +54,7 @@
 
                             </rich:extendedDataTable>
                         </a4j:outputPanel>
-
                     </div>
-
-
-
                     <div id="left-container">
                         <rich:panel style="background:transparent;overflow:visible;">
                             <f:facet name="header">
@@ -90,22 +98,18 @@
 
 
                 </h:form>
-                <h:form  id="strip" style="right:0;top:99px;"> 
-                    <h:commandLink value="Home" action="welcome.xhtml" id="home"/>
-                    <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
-
-                </h:form> 
+                
 
 
-                <div id="strip" style="left:10px;top:99px;"><a4j:status>
-
-                        <f:facet name="start">
-                            <h:graphicImage value="/images/ai.gif" alt="ai" />
-                        </f:facet>
-                    </a4j:status></div>
+                
             </f:view>
 
         </center>
-        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+        </div>
+      
+        
+         <div  class="footer">
+            <ui:include src="footer.xhtml"/> 
+        </div>
     </body>
 </html>

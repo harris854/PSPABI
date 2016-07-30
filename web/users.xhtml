@@ -14,15 +14,13 @@ and open the template in the editor.
         <title>Manage User</title>
         <h:outputStylesheet library="css" name="Other.css" />
     </h:head>
-    <body id="te">
+    <body >
         <ui:include src="header.xhtml" />
+        
         <div id="rules-container">
-
             <rich:dataTable value="#{user.cList}" 
                             id="table"  var="usr" styleClass="amba" 
-                            selectionMode="none" style="max-height:600px;width:500px;">
-
-
+                             style="max-height:600px;width:500px;">
                 <f:facet name="header">
                     <h:outputText value="User details" />
                 </f:facet> <rich:column width="350px">
@@ -37,11 +35,11 @@ and open the template in the editor.
                     </f:facet>
                     <h:outputText value="#{usr.utype}" />
                 </rich:column>
-
             </rich:dataTable>
-
-
         </div>
-        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+        
+        <div  class="footer">
+            <ui:include src="footer.xhtml"/> 
+        </div>
     </body>
 </html>

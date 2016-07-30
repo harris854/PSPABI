@@ -11,19 +11,22 @@ and open the template in the editor.
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich" 
       >
-
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Create user</title>
-
         <h:outputStylesheet library="css" name="Other.css" />
     </h:head>
-    <body id="te">
+    <body >
         <ui:include src="header.xhtml" />
-        <div id="center-container1">
-            Create a New Account
-
-            <f:view>
+        
+          <h:form  class="logout">
+            <a id="home" href="../faces/adm_welcome.xhtml" class="theme button gray home">Home</a>
+            <h:commandButton id="logout" class="theme button white" value="Logout" action="#{usermanager.logout}"/>
+        </h:form>
+        
+        <div class="row newuser">
+            <h2> Create a New Account</h2>
+             <f:view>
                 <h:form id="create">            
                     <h:panelGrid columns="3" border="0" style="color:black;">
                         First Name: <h:inputText id="fname"       
@@ -62,20 +65,29 @@ and open the template in the editor.
                                                           required="true"/>
                         <h:message for="create:passwordv" style="color: red"/>
                     </h:panelGrid>
+                    
+                    <div class="newuser-action">
                     <h:commandButton id="submit" 
                                      value="Create"
+                                     class="theme button gray"
+                                     style="margin-right: 5px;"
                                      action="#{usermanager.createUser}"/>
+                    
                     <h:commandButton id="cancel" 
                                      value="Cancel"
+                                     class="theme button gray"
                                      action="adm_welcome"/>
-
+                    </div>
                     <h:messages style="color: red" globalOnly="true"/>
                 </h:form>
 
             </f:view>
-
         </div>
+        
+      
 
-        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+       <div  class="footer">
+            <ui:include src="footer.xhtml"/> 
+        </div>
     </body>
 </html>

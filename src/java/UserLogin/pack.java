@@ -9,9 +9,7 @@ package UserLogin;
  * @author Hari
  */
 public class pack {
-    
-    
-    
+
     private static String uname;
     private static String utype;
 
@@ -33,12 +31,9 @@ public class pack {
 
     public pack() {
     }
-    
 
     public pack(String uname, String utype) {
         this.uname = uname;
         this.utype = utype;
     }
-    
-    
 }

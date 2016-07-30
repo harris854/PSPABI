@@ -6,37 +6,89 @@
         Purpose of the stylesheet follows.
 
 */
-
-#te{
-
+body{
     background-image: url('../../images/bg3.png');
     background-repeat: repeat-x;
-
-    position:absolute;
     /*    height: 830px;
-        width:1250px;*/
-
-    height: 796px;
-    width:1575px;
-
+       width:1250px;*/
+    height: auto;
+    /*    width:1575px*/
+    width:1320px;
     overflow: scroll;
-    margin: 2px;
-    padding: 1px;
+    padding:5px;
     overflow:scroll;
     font-family: Geneva,Arial,Helvetica,sans-serif;
     font-size: 20px;
     color:#FFFFFF;
+}
+.logout{
+    float: right;
 
 }
-#te .home{
-    top: 6px;
-    right: 0px;
-    width: 80px;
-    height: 50px;
+.row{
+    height:auto;
+    width: 100%;
+}
+
+.clearfix{
+    clear:both;
+}
+.login{
+    margin-top:100px;
+    margin-left: 500px;
+}
+.login ul{
+    list-style: none;
+    padding:0;
+}
+.login-box{
+    width: 330px;
+}
+.login-box > .header{
+    font-size: 24px;
+}
+
+.menu-box{
+    width: 200px;
+    /*    margin-left: 150px;
+        margin-top: 80px;*/
+    display:  table-cell;
+}
+.menu-icon{
+    padding-left: 25px;
+    margin-bottom: 30px
+}
+.menu-text{
+    /*    padding-top:80px*/
+    color:black;
+}
+.menu-grp{
+    display: table;
+    margin-left: 150px;
+    margin-top: 80px;
+}
+
+.newuser{
+    margin-left: 450px;
+    margin-top: 35px;
+        width: 325px;
+}
+.newuser-action{
+    float: right;
+    margin-right: 16px;
+}
+
+.footer{
+    clear:both;
     position: absolute;
-
+    bottom: 0px;
+    height: -100px;
+    width: 99%;
+    color:black;
 }
-#te #logout{
+
+
+body #logout{
     top: 125px;
     right: 0px;
     width: 80px;
@@ -44,38 +96,7 @@
     position: absolute;
 
 }
-/*test{
 
-   background: #00ff00  url('smiley.gif') no-repeat fixed center; /*fixed or scroll, center or top left or...*/
-/*}
-table.amba{
-  border: 2px solid #CCCCCC; 
-   overflow:scroll;
-
-}
-
-table.amba th{
-   background: #EFEFEF none repeat scroll 0 0; /*color image(include) repeat scroll(bg scroll with) x y position*/
-/* border-top: 1px solid #CCCCCC;
-font-size: 18px;
-padding-left: 5px;
-padding-right: 4px;
-padding-top: 4px;
-vertical-align: top;
-
-width: 100px;
-font-family: sans-serif;
-font-weight: normal;
-color: teal;
-font-style: normal;
-}
-
-/*table td:first-child {
-    font-weight:bold;
-        font-family: sans-serif;
-font-size: 18px;
-}
-*/
 table .first {
     width: 300px;
     font-size: 16px;
@@ -87,38 +108,20 @@ table .rest {
     font-size: 16px;
     font-family: sans-serif;
 }
-/*
-table.amba {
 
-   border-top: 1px solid #CCCCCC;
-   font-size: small;
-   padding-left: 5px;
-   padding-right: 4px;
-   padding-top: 4px;
-   vertical-align: top;
-}
-*/
 #foot{
     clear:both;
     position: absolute;
     bottom: 0px;
     height: -100px;
-    width: 100%;
+    width: 99%;
     color:black;
 }
 .pan{
     font-size: 20px;
     font-family: sans-serif;
 }
-/*input:focus
-{
-   background-color:#E2EBED;
-}
 
-input:hover{
-   background-color: yellow;
-}
-*/
 #header{
     background-color: #4b4b4b;
     opacity: 85%;
@@ -143,9 +146,6 @@ input:hover{
     top:125px;
     overflow:auto;
 }
-
-
-
 #center-container{
     position: absolute;
     width:600px;
@@ -158,18 +158,16 @@ input:hover{
 
 #welcome-container{
     position: absolute;
-    width:1350px;
-    left:350px;
+    width:1200px;
+    left:145px;
     height:600px;   
     top:128px;
     overflow: auto;  
-
 }
 #center-container1{
     position:absolute;
     width:350px;
     height:500px;   
-    
     overflow: auto;
     padding: 50px;
 }
@@ -178,23 +176,17 @@ input:hover{
     width:350px;
     height:500px;   
     left: 300px;
-    
     overflow: auto;
     padding: 50px;
 }
 
 #center-container3{
-
     position:absolute;
     width:350px;
     height:500px;   
     left: 600px;
-    
     overflow: auto;
     padding: 50px;
-
-
-
 }
 
 #Sag img{
@@ -230,7 +222,7 @@ input:hover{
 #login{
     position: absolute;
     top:300px;
-left: 700px;
+    left: 540px;
 }
 .button {
     display: inline-block;
@@ -307,14 +299,11 @@ left: 700px;
 }
 
 #forecasting{
-
     width: 400px;
     height:600px; 
     overflow: auto;
     position: absolute;
     top: 127px;  
-
-
 }
 #container{
     position:absolute;
@@ -324,11 +313,40 @@ left: 700px;
     height: 600px; 
     margin: 0 auto;
     overflow: auto;
-
 }
 
 #strip{
     top:93px;
     height:35px;
     position: absolute;
+}
+
+
+.home{
+   background-color: #bed6f8;
+    background-image: url("/PSPABI/faces/rfRes/buttonBackgroundImage.png?v=4.2.2.Final&db=eAFjZGBkZOBm!P-f8f-n70Bi37UfDEwAUQgJhA__&ln=org.richfaces.images");
+    background-position: left top;
+    background-repeat: repeat-x;
+    border-color: #bed6f8;
+    border-width: 1px;
+    color: #000000;
+    font-family: Arial,Verdana,sans-serif;
+    font-size: 12px;
+    
+    
+}
+
+.home:hover{
+        background-image: url("/PSPABI/faces/rfRes/buttonHoverBackgroundImage.png?v=4.2.2.Final&db=eAFjZGBkZOBm!P-f8f--az8Y!3!6!p-BCQBPPAmE&ln=org.richfaces.images");
+    background-position: left bottom;
+    background-repeat: repeat-x;
+}
+
+.logout a {
+    color:black;
+}
+.loader{
+    margin-left: 10px;
+    width:50px;
+    float:left;
 }

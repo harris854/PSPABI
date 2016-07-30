@@ -21,9 +21,15 @@ and open the template in the editor.
         <script src= "../js/forcast_model_train.js"></script>
 
     </h:head>
-    <body id="te">
+    <body>
         <ui:include src="../header.xhtml" />
         <f:view >
+            
+             <h:form   class="row logout">
+                   <h:commandLink value="Home" action="../welcome.xhtml" />
+                <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
+            </h:form >
+            
             <h:form>
                 <div id="asd">
                     <div id="container" style="width:355px; left:500px" >
@@ -77,36 +83,26 @@ and open the template in the editor.
                                              type="submit"
                                              value="Visualize"
                                              action="vizu.xhtml"/>
-                            <!--<a4j:commandButton value="Visualize" render="viz" execute="@form" />-->
 
                         </rich:panel>
                     </div></div>
 
 
             </h:form>
-            <!--            <h:form>
-                            <a4j:outputPanel id="viz">
-                            <div id="json" style="display:none">
-                                <h:outputText value="#{pre.getJson()}" rendered="#{not empty pre.getJson()}"/> </div>
-                            <div id="container" style="widht:available;"></div>
-                       </a4j:outputPanel>
-                      </h:form>-->
-            <h:form  id="strip" style="right:0; top:99px;"> 
-                <h:commandLink value="Home" action="../welcome.xhtml" />
-                <!--<h:commandLink value="Visualize" action="vizu.xhtml" id="vizu"/>-->
-                <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
+          
+          
 
-            </h:form> 
             <div id="strip" style="left:10px;top:99px;">
                 <a4j:status>
-
                     <f:facet name="start">
                         <h:graphicImage value="/images/ai.gif" alt="ai" />
                     </f:facet>
-                </a4j:status></div>
-
+                </a4j:status>
+            </div>
         </f:view>
 
-        <div id="foot">  <ui:include src="../footer.xhtml"/> </div>
+        <div  class="footer">
+            <ui:include src="footer.xhtml"/> 
+        </div>
     </body>
 </html>

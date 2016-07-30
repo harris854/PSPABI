@@ -14,32 +14,40 @@ and open the template in the editor.
         <title>Manage User</title>
         <h:outputStylesheet library="css" name="Other.css" />
     </h:head>
-    <body id ="te">
+    <body >
         <ui:include src="header.xhtml" />
-         <div id="left-container"> <ul>  <a id="home" href="../welcome.xhtml" class="theme button white">Home</a>
-                </ul></div>
-        <div id="center-container">
-            <div id="center-container1">
-                <br></br>
-                <br></br> 
-                <div id="Sag"><a href="create.xhtml"><h:graphicImage value="/images/uadd.png" width="100" height="100" alt="add"/></a> </div>
-                <br></br>
 
-                <h:outputText value="Create user" style="color:black;"/>   
+        <h:form  class="logout">
+            <a id="home" href="../faces/adm_welcome.xhtml" class="theme button white home">Home</a>
+            <h:commandButton id="logout" class="theme button white" value="Logout" action="#{usermanager.logout}"/>
+        </h:form>
 
+        <div class="row menu-grp">
+            <div class="menu-box">  
+                <h:form class="menu-icon">  
+                    <div id="Sag">
+                        <a href="create.xhtml">
+                            <h:graphicImage value="/images/uadd.png" width="100" height="100" alt="add"/>
+                        </a> 
+                    </div>
+                </h:form>
+                <h:outputText class="menu-text"   value="Create user" />   
             </div>
-            <div id="center-container2">
-                <br></br>
-                <br></br> 
-                <div id="Sag"><a href="users.xhtml"><h:graphicImage value="/images/udel.png" width="100" height="100" alt="del"/></a> </div>
-                <br></br>
-
-                <h:outputText value="Delete user" style="color:black;"/>   
-
+            
+             <div class="menu-box">  
+                <h:form class="menu-icon">  
+                    <div id="Sag">
+                        <a href="users.xhtml">
+                        <h:graphicImage value="/images/udel.png" width="100" height="100" alt="del"/>
+                    </a> 
+                    </div>
+                </h:form>
+                <h:outputText class="menu-text" value="Delete user" />   
             </div>
-
         </div>
-       
-        <div id="foot">  <ui:include src="footer.xhtml"/> </div>
+
+        <div  class="footer">
+            <ui:include src="footer.xhtml"/> 
+        </div>
     </body>
 </html>
