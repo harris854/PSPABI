@@ -6,38 +6,40 @@
         <title>AreaChart</title>
         <link type="text/css" href="../css/base.css" rel="stylesheet" />
         <link type="text/css" href="../css/BarChart.css" rel="stylesheet" />
-
         <!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
-
-
         <script language="javascript" type="text/javascript" src="../js/jit.js"></script>
         <script language="javascript" type="text/javascript" src="areachart.js"></script>
+        <link href="/PSPABI/faces/javax.faces.resource/Other.css?ln=css" rel="stylesheet" type="text/css"/>
         <%@page import="JsonCreator.jsoncreator" %>
-        <% jsoncreator qt2 = new jsoncreator();
-            char[] str2 = qt2.get();%>
+        <% jsoncreator queryDataProvider = new jsoncreator();
+            char[] queryDataJson = queryDataProvider.get();%>
     </head>
 
-    <body id="te" onload="init('<%out.print(str2);%>');">
+    <body  onload="init('<%out.print(queryDataJson);%>');">
         <%@include file="../header.xhtml" %>
-        <div id="container1">
-
-            <div id="left-container">
-
-
+        
+        <div class="row">
+        <div class="loader">
+                    <a4j:status>
+                        <f:facet name="start">
+                            <h:graphicImage value="/images/ai.gif" alt="ai" />
+                        </f:facet>
+                    </a4j:status>
+                </div>
+         <h:form  class="logout">
+            <a id="home" href="../faces/welcome.xhtml" class="button home">Home</a>
+            </h:form>
+        </div>
+        <div class="row">
+             <div  class="left-container">
                 <ul id="id-list"></ul>
-                <ul>  <a id="home" href="../welcome.xhtml" class="theme button white">Home</a>
-                </ul>
-
             </div>
-
-            <div id="center-container">
-
+             <div class="center-container">
                 <div id="infovis"></div>   
-
             </div>
-
-            </div>
-            <div id="foot"><%@include file="../footer.xhtml" %></div>
-
+        </div>
+         <div  class="row footer">
+            <%@include file="../footer.xhtml" %>
+        </div>
     </body>
 </html>
